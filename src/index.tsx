@@ -9,7 +9,11 @@ import { UseMixlayerChat, useMixlayerChat } from "./use-chat-client";
 export const MixlayerChatContext = createContext<UseMixlayerChat>(null!);
 export const useMixlayerChatState = () => useContext(MixlayerChatContext);
 
-export function MixlayerChat(props: { className?: string; url?: string }) {
+export function MixlayerChat(props: {
+  className?: string;
+  url?: string;
+  emptyState?: React.ReactNode;
+}) {
   const mixlayerChat = useMixlayerChat(props.url ?? "/chat");
   const [currentChatId, setCurrentChatId] = useState<string | null>(null);
   const [currentChat, setCurrentChat] = useState<MxlChat | null>(null);
@@ -17,6 +21,10 @@ export function MixlayerChat(props: { className?: string; url?: string }) {
     null
   );
   const [autoscroll, setAutoscroll] = useState(true);
+
+  const isEmptyState =
+    !currentChat ||
+    (currentChat.turns.length === 0 && !mixlayerChat.state.response);
 
   useEffect(() => {
     const chatId = mixlayerChat.createNewChat(null);
@@ -66,17 +74,23 @@ export function MixlayerChat(props: { className?: string; url?: string }) {
 
   return (
     <MixlayerChatContext.Provider value={mixlayerChat}>
-      <div className={`w-full h-full flex justify-center ${props.className}`}>
-        <div className="w-full h-full flex flex-col">
-          <div
-            className="flex-1 pt-3 overflow-scroll min-h-0 pb-40"
-            ref={setChatMessagesDiv}
-          >
-            <div className="max-w-[640px] mx-auto">
-              {currentChat && <ChatMessages chat={currentChat} />}
+      <div
+        className={`relative w-full h-full flex justify-center ${props.className}`}
+      >
+        {!isEmptyState && (
+          <div className="w-full h-full flex flex-col">
+            <div
+              className="flex-1 pt-3 overflow-scroll min-h-0 pb-40"
+              ref={setChatMessagesDiv}
+            >
+              <div className="max-w-[640px] mx-auto">
+                <ChatMessages chat={currentChat} />
+              </div>
             </div>
           </div>
-        </div>
+        )}
+
+        {isEmptyState && <div>{props.emptyState}</div>}
 
         <div className="absolute bottom-5 w-full max-w-[680px] mx-auto">
           <InputBox
@@ -94,3 +108,5 @@ export function MixlayerChat(props: { className?: string; url?: string }) {
 }
 
 export { useMixlayerChat } from "./use-chat-client";
+export { InputBox } from "./input-box";
+export { ChatMessages } from "./chat-messages";
