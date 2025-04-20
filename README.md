@@ -1,13 +1,17 @@
-# mixlayer-react-chat
+<table>
+  <tr>
+    <td valign="top" width="50%" border="0">
+<h2>mixlayer-react-chat</h2>
 
-<div style="display: flex; gap: 2rem; align-items: center;">
-  <div style="flex: 1">
-    `mixlayer-react-chat` is a React component library that provides a ready-to-use, simple chat interface for your applications. It handles message display, user input, and communication with a backend chat service.
-  </div>
-  <div style="flex: 1">
-    ![Chat Interface Screenshot](screenshot.gif)
-  </div>
-</div>
+<code>mixlayer-react-chat</code> is a React component library that provides a ready-to-use, simple chat interface for your applications. It handles message display, user input, and communication with a backend chat service.
+
+</td>
+<td>
+<img src="screenshot.gif" alt="Chat Interface Screenshot" width="720">
+</td>
+
+  </tr>
+</table>
 
 ## Usage
 
@@ -42,7 +46,7 @@ The backend endpoint should implement Server-Sent Events (SSE) to stream chat re
 
 `mixlayer-react-chat` will submit a request with a body in the following format:
 
-```json
+```javascript
 {
   "params": {
     "messages": [
