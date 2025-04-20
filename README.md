@@ -8,6 +8,7 @@
 ✅ Markdown rendering<br/>
 ✅ Autoscrolling<br/>
 ✅ Auto-resizable input box<br/>
+✅ Turn deletion & regen<br/>
 
 ## Usage
 
