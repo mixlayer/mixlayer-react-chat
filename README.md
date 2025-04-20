@@ -1,4 +1,4 @@
-# mixlayer-react-chat <img align="right" src="screenshot.gif" width="360" alt="Animated screenshot" />
+# mixlayer-react-chat <img align="right" src="https://raw.githubusercontent.com/mixlayer/mixlayer-react-chat/master/screenshot.gif" width="360" alt="Animated screenshot" />
 
 <code>mixlayer-react-chat</code> is a simple React component that provides a ready-to-use, simple chat interface. It handles message display, user input, and communication with a [Server-Sent Events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) chat API.
 
