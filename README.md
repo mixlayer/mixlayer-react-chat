@@ -1,17 +1,9 @@
-<table>
-  <tr>
-    <td valign="top" width="50%" border="0">
-<h2>mixlayer-react-chat</h2>
+# mixlayer-react-chat <img align="right" src="screenshot.gif" width="256" alt="Animated screenshot" />
 
 <code>mixlayer-react-chat</code> is a React component library that provides a ready-to-use, simple chat interface for your applications. It handles message display, user input, and communication with a backend chat service.
 
-</td>
-<td>
-<img src="screenshot.gif" alt="Chat Interface Screenshot" width="720">
-</td>
-
-  </tr>
-</table>
+<br/>
+<br/>
 
 ## Usage
 
