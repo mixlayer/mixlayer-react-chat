@@ -22,7 +22,7 @@ $ npm install @mixlayer/react-chat
 2. Insert the `MixlayerChat` component into your React component tree. You need to provide the URL for your chat backend.
 
 ```jsx
-import { MixlayerChat } from "mixlayer-react-chat";
+import { MixlayerChat } from "@mixlayer/react-chat";
 import "mixlayer-react-chat/style.css"; // Import default styles
 
 function App() {
