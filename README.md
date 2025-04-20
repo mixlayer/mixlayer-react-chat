@@ -6,9 +6,10 @@
 
 ✅ Response streaming<br/>
 ✅ Markdown rendering<br/>
+✅ Stream cancellation<br/>
 ✅ Autoscrolling<br/>
-✅ Auto-resizable input box<br/>
-✅ Turn deletion & regen<br/>
+✅ Auto-resizing input box<br/>
+✅ Turn deletion & regeneration<br/>
 
 ## Usage
 
