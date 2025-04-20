@@ -1,13 +1,23 @@
-# mixlayer-react-chat <img align="right" src="screenshot.gif" width="256" alt="Animated screenshot" />
+# mixlayer-react-chat <img align="right" src="screenshot.gif" width="360" alt="Animated screenshot" />
 
-<code>mixlayer-react-chat</code> is a React component library that provides a ready-to-use, simple chat interface for your applications. It handles message display, user input, and communication with a backend chat service.
+<code>mixlayer-react-chat</code> is a simple React component that provides a ready-to-use, simple chat interface. It handles message display, user input, and communication with a [Server-Sent Events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) chat API.
 
-<br/>
-<br/>
+#### Features
+
+✅ Response streaming<br/>
+✅ Markdown rendering<br/>
+✅ Autoscrolling<br/>
+✅ Auto-resizable input box<br/>
 
 ## Usage
 
-Wrap your application or a specific part of it with the `MixlayerChat` component. You need to provide the URL endpoint for your chat backend.
+1. Add the dependency to your project.
+
+```bash
+$ npm install @mixlayer/react-chat
+```
+
+2. Insert the `MixlayerChat` component into your React component tree. You need to provide the URL for your chat backend.
 
 ```jsx
 import { MixlayerChat } from "mixlayer-react-chat";
@@ -16,7 +26,7 @@ import "mixlayer-react-chat/style.css"; // Import default styles
 function App() {
   return (
     <div style={{ height: "500px", width: "400px", border: "1px solid #ccc" }}>
-      <MixlayerChat url="/api/chat" emptyState={<div>Start chatting!</div>} />
+      <MixlayerChat url="/chat" emptyState={<div>Start chatting!</div>} />
     </div>
   );
 }
@@ -60,32 +70,31 @@ The backend endpoint should implement Server-Sent Events (SSE) to stream chat re
 
 When `mixlayer-react-chat` connects to the provided URL, it expects a stream of JSON objects in the `data` field of each event.
 
-Each JSON object should represent a frame with a `type` field indicating its purpose:
+**Text Frame**
 
-- **Text Frame**
+```json
+{
+  "type": "text",
+  "text": "The text chunk being streamed"
+}
+```
 
-  ```json
-  {
-    "type": "text",
-    "text": "The text chunk being streamed"
-  }
-  ```
+**Error Frame**
 
-- **Error Frame**
+```json
+{
+  "type": "error",
+  "error": "Description of the error"
+}
+```
 
-  ```json
-  {
-    "type": "error",
-    "error": "Description of the error"
-  }
-  ```
+**Done Frame** Signals the end of the stream for a chat turn.
 
-- **Done Frame** Signals the end of the stream for a chat turn.
-  ```json
-  {
-    "done": true
-  }
-  ```
+```json
+{
+  "done": true
+}
+```
 
 ### Backend Example
 
