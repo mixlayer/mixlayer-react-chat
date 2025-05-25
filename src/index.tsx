@@ -83,7 +83,7 @@ export function MixlayerChat(props: {
               className="flex-1 pt-3 overflow-scroll min-h-0 pb-40"
               ref={setChatMessagesDiv}
             >
-              <div className="max-w-[640px] mx-auto">
+              <div className="max-w-[640px] mx-auto px-3">
                 <ChatMessages chat={currentChat} />
               </div>
             </div>
@@ -92,7 +92,7 @@ export function MixlayerChat(props: {
 
         {isEmptyState && <div>{props.emptyState}</div>}
 
-        <div className="absolute bottom-5 w-full max-w-[680px] mx-auto">
+        <div className="absolute bottom-5 w-full max-w-[680px] mx-auto px-3">
           <InputBox
             runState={mixlayerChat.state.runState}
             onSendClick={(message) =>

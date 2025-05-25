@@ -93,8 +93,10 @@ export function InputBox(props: {
               if (e.shiftKey) {
                 return; // allow new line
               }
+
               e.preventDefault();
               onSendClick();
+              e.currentTarget.blur();
             }
           }}
           value={message}
