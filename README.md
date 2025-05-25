@@ -23,7 +23,7 @@ $ npm install @mixlayer/react-chat
 
 ```jsx
 import { MixlayerChat } from "@mixlayer/react-chat";
-import "mixlayer-react-chat/style.css"; // Import default styles
+import "@mixlayer/react-chat/dist/style.css";
 
 function App() {
   return (
